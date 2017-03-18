@@ -1,0 +1,163 @@
+
+
+<dialog id="ubahprofilepegawai" class="mdl-dialog newnewmodal" >
+     <button class="mdl-button mdl-js-button mdl-button--icon modal_button" ng-click="hideDialog('ubahprofilepegawai')">
+      <i class="material-icons">close</i>
+    </button>
+       <div class="backdrop" ng-click="hideDialog('ubahprofilepegawai')">
+    </div>
+    <div class="modal__modal" style="width:60%;">
+     <h2 class="g-modal-title-h1 sc-truncate">Edit Profile</h2>
+
+     <div class="profileSettings__form">
+       <div class="sc-media">
+            <div class="profileSettings__avatar sc-media-image">
+          <div class="editImage" style="width: 300px;">
+            <div class="editImage__select" style="position:relative;">
+             <img ng-src="{{editprofile.photo }}"  ng-model="resultimage" file-preview="uploadgambar" ng-show="!resultimage">
+             <div class="cropArea">
+               <img-crop ng-show="resultimage" image="resultimage" result-image="editprofile.photo"></img-crop>
+            </div>
+               
+                <div class="image__button">
+                  <div class="imageChooser">
+                    <div class="imageChooser__chooseButton sc-button2 sc-button-camera sc-button-medium">Pilih Gambar</div>
+                    <input id="output" class="imageChooser__fileInput sc-visuallyhidden" type="file" accept="image/jpeg,image/pjpeg,image/png" ng-model="uploadgambar" file-changed>
+                  </div>
+                </div>
+            </div>
+        
+          </div>
+
+        </div>
+          <div class="profileSettings__baseFields sc-media-content">
+            <div class="profileSettings__cell ">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Nama Pegawai</span>
+
+                      <div class="textfield__inputWrapper ">
+                          <div class="mdl-textfield mdl-js-textfield m-fullWidth" >
+                            <input class="mdl-textfield__input" type="text" id="sample1" placeholder="Nama Lengkap" ng-model="editprofile.nama" disabled>
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+                <div class="profileSettings__cell ">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Spesialis</span>
+
+                      <div class="textfield__inputWrapper ">
+                          <div class="mdl-textfield mdl-js-textfield m-fullWidth" >
+                            <input class="mdl-textfield__input" type="text" id="sample1" placeholder="Nama Lengkap" ng-model="editprofile.spesialis" disabled>
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+              <div class="profileSettings__cell ">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Tarif</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" style="width:100%;">
+                            <input class="mdl-textfield__input" type="number" id="sample1"  ng-model="editprofile.tarif" ng-disabled="editprofile.spesialis != 'Dokter Gigi'" >
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+              <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Alamat Email</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="email" id="sample1" placeholder="Email" ng-model="editprofile.email" disabled>
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                            <span class="mdl-textfield__error">Masukkan email dengan benar</span>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+       
+            <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label ">Nomor Telp</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="tel" id="sample1" placeholder="Nomor Telp" ng-model="editprofile.nomor_telp">
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                            <span class="mdl-textfield__error">Masukkan nomor telepon dengan benar</span>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+              <div class="profileSettings__cell ">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label ">Alamat</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" style="width:100%;">
+                            <input class="mdl-textfield__input" type="text" id="sample1" placeholder="Alamat Lengkap" ng-model="editprofile.alamat">
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                            
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+
+
+          </div>
+       </div>
+
+       <div class="profileSettings__formButtons sc-button-toolbar sc-border-light-top">
+          
+          <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:red;" ng-click="hideDialog('ubahprofilepegawai')">
+             Batal
+          </button>
+           <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="edituserprodfile(editprofile)" ng-disabled="!editprofile.nama || !editprofile.email || !editprofile.spesialis || !editprofile.tarif">
+            <div ng-show="showspin" class="mdl-spinner mdl-js-spinner is-active" ></div><div ng-show="!showspin"> Simpan Perubahan</div>
+          </button>
+       </div>
+
+     </div>
+
+    </div>
+
+</dialog>

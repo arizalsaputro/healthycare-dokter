@@ -1,0 +1,204 @@
+   <div class="mdl-grid demo-content" ng-init="changejud('Periksa')">
+            <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing" >
+              <div class="dashperiksa mdl-color--white">
+                  <div class="bannerner" ng-class="{'bgklinik1':numron==1,'bgklinik2':numron==2,'bgklinik3':numron==3,'bgklinik4':numron==4,'bgklinik5':numron==5,'bgklinik6':numron==6,'bgklinik7':numron==7,'bgklinik8':numron==8,'bgklinik9':numron==9,'bgklinik10':numron==10}"> 
+                  </div>
+                  <div class="profile-periksa">
+                      <div class="item item-thumbnail-left" style="border:none;z-index:0;">
+                        <img id="imgpro" ng-src="{{datapasienperiksa.photo}}" style="margin-top:-38px;cursor: pointer;" ng-click="openimageprofile(datapasienperiksa.nama,datapasienperiksa.photo)">
+                        <h2 style="margin: -20px 0 9px 0;font-size: 20px;text-overflow: ellipsis;white-space: nowrap;overflow:hidden;">{{datapasienperiksa.nama || 'Kosong'}}</h2>
+                        <p style="text-overflow: ellipsis;white-space: nowrap;overflow:hidden;">{{datapasienperiksa.alamat || 'tidak ada pasien'}}</p>
+                      </div>
+                  </div>
+                     <div class="menu-profile" style="margin-top: -27px;">
+                       <div class="mdl-tabs__tab-bar" style="border:none;">
+                           <button class="mdl-button mdl-js-button mdl-js-ripple-effect " ng-click="showrekam=false" ng-disabled="!adapas">
+                                profile
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-js-ripple-effect " ng-click="showrekam=true;" ng-disabled="!adapas">
+                                rekam medis
+                            </button>
+                      </div>
+                    </div>
+              </div>
+
+              <div class="dashperiksa mdl-color--white" style="margin-top: 27px;border: 1px solid #e1e8ed;">
+                  <div class="menu-profile">
+                       <div class="mdl-tabs__tab-bar" style="border:none;">
+                           <button class="mdl-button mdl-js-button mdl-js-ripple-effect " ng-click="openberikut()">
+                                <span ng-if="!adapas">mulai periksa</span>
+                                <span ng-if="adapas">periksa berikutnya</span>
+                               <i class="material-icons">navigate_next</i>
+                            </button>
+
+                      </div>
+                    </div>
+              </div>
+               
+             
+                
+                
+          </div>
+
+          <div class="demo-graphs mdl-color--white mdl-cell mdl-cell--8-col mdl-cell--8-col-tablet" style="border: 1px solid #e1e8ed;">
+                    <div ng-if="!showrekam" class="form_profile_info" >
+             <h2 class="g-modal-title-h1 sc-truncate">Informasi Pasien</h2>
+
+             <div ng-if="datapasienperiksa" class="profileSettings__form">
+               <div class="sc-media">
+                  <div class="profileSettings__baseFields sc-media-content">
+                    <div class="profileSettings__cell">
+                        <div class="textfield messageOutside">
+                           <label>
+                            <span class="textfield__label ">Nama Pasien</span>
+
+                              <div class="textfield__inputWrapper">
+                                  <div class="mdl-textfield mdl-js-textfield" >
+                                    <span style="border-bottom:1px solid blue">{{datapasienperiksa.nama|| 'kosong'}}</span>
+                                  </div>
+                                  
+                              </div>
+
+                          </label>
+              
+                        </div>
+                    </div>
+                    
+                         <div class="profileSettings__cell">
+                        <div class="textfield messageOutside">
+                           <label>
+                            <span class="textfield__label ">Tanggal Lahir</span>
+
+                              <div class="textfield__inputWrapper">
+                                  <div class="mdl-textfield mdl-js-textfield" >
+                                   <span style="border-bottom:1px solid blue">{{gettgllhr(datapasienperiksa.umur)| date:"longDate" || 'kosong'}}</span>
+                                  </div>
+                                  
+                              </div>
+
+                          </label>
+              
+                        </div>
+                    </div>
+                    <div class="profileSettings__cell">
+                        <div class="textfield messageOutside">
+                           <label>
+                            <span class="textfield__label ">Nomor Telp</span>
+
+                              <div class="textfield__inputWrapper">
+                                  <div class="mdl-textfield mdl-js-textfield" >
+                                    <span style="border-bottom:1px solid blue">{{datapasienperiksa.nomor_telp || 'kosong'}}</span>
+                                  </div>
+                                  
+                              </div>
+
+                          </label>
+              
+                        </div>
+                    </div>
+                     <div class="profileSettings__cell">
+                        <div class="textfield messageOutside">
+                           <label>
+                              <span class="textfield__label ">Jenis Kelamin</span>
+                              <div class="textfield__inputWrapper">
+                                    <span style="border-bottom:1px solid blue" ng-if="datapasienperiksa.kelamin=='L'">Laki-aki</span>
+                                    <span style="border-bottom:1px solid blue" ng-if="datapasienperiksa.kelamin=='P'">Perempuan</span>
+                              </div>
+                          </label>
+              
+                        </div>
+                    </div>
+
+
+                            <div class="profileSettings__cell m-fullWidth">
+                        <div class="textfield messageOutside">
+                           <label>
+                            <span class="textfield__label ">Alamat</span>
+
+                              <div class="textfield__inputWrapper">
+                                  <div class="mdl-textfield mdl-js-textfield m-fullWidth">
+                                    <span style="border-bottom:1px solid blue;text-overflow: ellipsis;white-space: nowrap;overflow:hidden;">{{datapasienperiksa.alamat || 'kosong'}}</span>
+                                  </div>
+                                  
+                              </div>
+
+                          </label>
+              
+                        </div>
+                    </div>
+
+                       
+            
+                  </div>
+               </div>
+
+             </div>
+
+            </div>
+
+            <div ng-if="showrekam" class="form_rekam_info" >
+             <h2 class="g-modal-title-h1 sc-truncate">Rekam Medis Pasien</h2>
+
+              <table ng-if="rekammedik.length != 0" class="mdl-data-table mdl-js-data-table  table_rekam_medik table" style="border:none;">
+                <thead>
+                  <tr>
+                    <th class="mdl-data-table__cell--non-numeric">No</th>
+                    <th class="mdl-data-table__cell--non-numeric">Tanggal</th>
+                    <th class="mdl-data-table__cell--non-numeric">Kesimpulan</th>
+                    <th class="mdl-data-table__cell--non-numeric"></th>
+
+                  </tr>
+                </thead>
+                <tbody >
+                  <tr ng-repeat="rekam in rekammedik">
+                    <td class="mdl-data-table__cell--non-numeric">{{$index+1}}</td>
+                    <td class="mdl-data-table__cell--non-numeric">{{rekam.tgl | date:"longDate" }}</td>
+                    <td class="mdl-data-table__cell--non-numeric" style="text-overflow: ellipsis;white-space: nowrap;overflow:hidden;">{{rekam.kesimpulan}}</td>
+                    <td> 
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="{{rekam.$id+1}}" ng-click="lihatRekammedik(rekam)">
+                                 <i class="material-icons" >assignment</i>
+                         </button>
+                         <div class="mdl-tooltip" for="{{rekam.$id+1}}">
+                          Lihat Lengkap Rekam Medik
+                          </div>
+                          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="{{rekam.$id}}" ng-click="openeditrekam(rekam)">
+                             <i class="material-icons" >mode_edit</i>
+                          </button>
+                          <div class="mdl-tooltip" for="{{rekam.$id}}">
+                          Edit Rekam Medik
+                          </div>
+                          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="{{rekam.$id+2}}" ng-click="showhapusrekammedik(rekam)">
+                             <i class="material-icons" >delete</i>
+                          </button>
+                            <div class="mdl-tooltip" for="{{rekam.$id+2}}">
+                          Hapus Rekam Medik
+                          </div>
+
+                    </td>
+                  </tr>
+
+                </tbody>
+                </table>
+
+
+             <div class="floating " ng-if="!showsnackbar">
+                  <div class="mdl-tooltip" for="tambahrek">
+                            Tambah Rekam medis
+                 </div>
+             <button  id="tambahrek" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="showDialog('addrekammedik')">
+              <i class="material-icons" >add</i>
+              </button>
+            </div>
+
+            </div>
+
+          </div>
+     
+        </div>
+
+<div ng-include src="'templates/pasien/pasien_addrekam.html'" ></div>
+<div ng-include src="'templates/dialog/rekam_hapus.html'" ></div>
+<div ng-include src="'templates/pasien/pasien_lihatrekam.html'" ></div>
+<div ng-include src="'templates/pasien/pasien_editrekam.html'" ></div>
+<div ng-include src="'templates/periksa/periksa-next.html'" ></div>
+<div ng-include src="'templates/dialog/dialog_berikutnya.html'" ></div>

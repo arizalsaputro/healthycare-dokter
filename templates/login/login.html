@@ -1,0 +1,61 @@
+
+
+<div class="mdl-layout mdl-js-layout mdl-color--grey-100" >
+	<main class="mdl-layout__content" > 
+		<div id="background_branding_container" class="ie_legacy" >
+			<img id="background_background_image" style="visibility: visible; display: block;" src="">
+		
+		</div>
+		<div class="login-panel">
+		   <div class="login-wrapper">
+		   	<div class="mdl-card "  style="width:100%;">
+			<div class="mdl-card__title">
+				<h2 class="mdl-card__title-text">Masuk</h2>
+			</div>
+			<form >
+	  	<div class="mdl-card__supporting-text">
+				
+					<div class="mdl-textfield mdl-js-textfield " style="width:100%;">
+						<input class="mdl-textfield__input" type="email" ng-model="user.email" />
+						<label class="mdl-textfield__label" for="username">Email</label>
+						<span class="mdl-textfield__error">Masukkan email dengan benar</span>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield" style="width:100%;">
+						<input class="mdl-textfield__input" type="password" ng-model="user.pass" />
+						<label class="mdl-textfield__label" for="userpass">Password</label>
+						<span class="mdl-textfield__error">Masukkan password dengan benar</span>
+					</div>
+				
+			</div>
+			<div class="mdl-card__actions ">
+				<button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"  ng-click="doLogin(user)" style="color:#fff;background: #3f51b5;"><div ng-show="showspin" class="mdl-spinner mdl-js-spinner is-active" ></div><div ng-show="!showspin">Masuk</div></button>
+				<span style="cursor: pointer;font-size: 16px;color: #3F51B5;right: 0;float: right; margin-top: 13px;" ng-click="showreset=!showreset">Lupa kata sandi?</span>
+			</div>
+			</form>
+		</div>
+		  <div ng-if="showreset" class="mdl-card opacityanimate"  style="width:100%;">
+			<form >
+	  	<div class="mdl-card__supporting-text">
+					<div class="mdl-textfield mdl-js-textfield " style="width:100%;">
+						<input class="mdl-textfield__input" type="email" ng-model="resetpass" />
+						<label class="mdl-textfield__label" for="username">Email</label>
+						<span class="mdl-textfield__error">Masukkan email dengan benar</span>
+					</div>
+			</div>
+			<div class="mdl-card__actions ">
+				<button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="resetpasswd(resetpass)" style="color:#fff;background: #3f51b5;width:100%;"><div ng-show="showspin2" class="mdl-spinner mdl-js-spinner is-active" ></div><div ng-show="!showspin2">Kirim Ulang kata sandi</div></button>
+	
+			</div>
+			</form>
+		</div>
+		   </div>
+		</div>  
+	</main>
+	<div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar" style="left:40px;bottom:40px;">
+      <div class="mdl-snackbar__text"></div>
+     	<button class="mdl-snackbar__action" type="button"></button> 
+    </div>
+</div>
+
+
+

@@ -1,0 +1,79 @@
+
+<style>
+.demo-updates > .mdl-card__menu {
+  color: #fff;
+}
+</style>
+
+
+<div class="mdl-grid demo-content" ng-init="changejud('Data Semua Pasien')">
+         <div ng-if="allUser[0] == null && !showsnackbar" id="loadiing" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+          
+          <div ng-if="allUser[0] == null && showsnackbar" id="loadiing">
+           <i  class="material-icons" style="font-size:1000%;">desktop_windows</i>
+           <p style="text-align:center;">Data Pasien Kosong</p>
+         </div>
+
+          <div class="mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet" ng-repeat="user in allUser | filter:search | startFrom:currentPage*pageSize | limitTo:pageSize" >
+
+              <a class="item item-thumbnail-left" href="#/dash/pasien/detail" ng-click="tampungdetail(user,1);changejud('Detail Pasien')" >
+                <img  ng-show="user.profile.photo" ng-src="{{user.profile.photo }}">
+                 <img ng-show="!user.profile.photo && user.profile.kelamin == 'P'" ng-src="img/person-girl-flat.png">
+                <img ng-show="!user.profile.photo && user.profile.kelamin == 'L'" ng-src="img/person-flat.png">
+                <h2 class="foroverflow">{{user.profile.nama}}</h2>
+                <p class="foroverflow">{{user.profile.email}}</p>
+                <p class="foroverflow">{{user.profile.nomor_telp}}</p>
+              </a>
+              
+          </div>
+     
+        
+ </div>
+
+<div ng-if="allUser[0] != null && !showsnackbar && getData().length >=15" class="button-pag">
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-disabled="currentPage == 0" ng-click="prev()">
+          sebelumnya
+        </button>
+         <span class="pag-span">Halaman {{currentPage+1}} dari {{numberOfPages()}}</span>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored" ng-click="nexti()" ng-disabled="currentPage >= getData().length/pageSize - 1">
+          berikutnya
+        </button>
+  </div>
+
+ <div class="floating " ng-if="!showsnackbar">
+     <div class="mdl-tooltip" for="tambahpas">
+                Tambah Pasien
+     </div>
+    
+   <button  id="tambahpas" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="showDialog('tambahpasien')">
+  <i class="material-icons" >add</i>
+  </button>
+  
+ </div>
+
+ <table id="tablepasien"  ng-if="showTbl" class="mdl-data-table mdl-js-data-table mdl-shadow--2dp table" style="width:100%;" >
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">No</th>
+      <th class="mdl-data-table__cell--non-numeric">Nama</th>
+      <th class="mdl-data-table__cell--non-numeric">Kelamin</th>
+      <th class="mdl-data-table__cell--non-numeric">Tgl Lahir</th>
+      <th class="mdl-data-table__cell--non-numeric">Alamat Lengkap</th>
+      <th class="mdl-data-table__cell--non-numeric">Nomor Telepon</th>
+      <th class="mdl-data-table__cell--non-numeric">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in allUser">
+      <td class="mdl-data-table__cell--non-numeric" >{{$index+1}} </td>
+        <td class="mdl-data-table__cell--non-numeric">{{user.profile.nama}}</td>
+          <td class="mdl-data-table__cell--non-numeric">{{user.profile.kelamin}}</td>
+      <td class="mdl-data-table__cell--non-numeric" ng-init="tgl=getTangal(user.profile.umur)">{{tgl | date:'longDate'}} </td>
+      <td class="mdl-data-table__cell--non-numeric">{{user.profile.alamat}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{user.profile.nomor_telp}}</td>
+       <td class="mdl-data-table__cell--non-numeric">{{user.profile.email}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+ 

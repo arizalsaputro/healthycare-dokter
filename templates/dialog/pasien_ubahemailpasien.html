@@ -1,0 +1,90 @@
+<dialog id="ubahemailpasien" class="mdl-dialog newnewmodal" >
+    <div class="no-internet" ng-show="gagallagi">
+            <p>{{pesangagal}}</p>
+      </div>
+     <button class="mdl-button mdl-js-button mdl-button--icon modal_button" ng-click="hideDialog('ubahemailpasien')">
+      <i class="material-icons">close</i>
+    </button>
+      <div class="backdrop" ng-click="hideDialog('ubahemailpasien')">
+    </div>
+    <div class="modal__modal" >
+     <h2 class="g-modal-title-h1 sc-truncate">Ubah Email Pasien</h2>
+
+     <div class="profileSettings__form">
+       <div class="sc-media">
+          <div class="profileSettings__baseFields sc-media-content">
+             <div class="profileSettings__cell m-fullWidth">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label ">Email Saat ini</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" style="width:100%;">
+                            <input class="mdl-textfield__input" type="email" id="sample1" placeholder="Email Saat Ini" ng-model="tampungpasien.profile.email" disabled>
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                            
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+            <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Email Baru</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="email" id="sample1" placeholder="" ng-model="newItem.email">
+                            <label class="mdl-textfield__label" for="sample1">Email Baru</label>
+                            <span class="mdl-textfield__error">Masukkan email dengan benar</span>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+            <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Ulangi Email Baru</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="email" id="sample1" placeholder="" ng-model="newItem.ulang">
+                            <label class="mdl-textfield__label" for="sample1">Ulangi Email Baru</label>
+                             <span class="mdl-textfield__error">Masukkan email dengan benar</span>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+              
+
+
+          </div>
+       </div>
+
+       <div class="profileSettings__formButtons sc-button-toolbar sc-border-light-top">
+          
+          <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:red;" ng-click="hideDialog('ubahemailpasien')">
+             Batal
+          </button>
+           <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="ubahemailpasien(tampungpasien,newItem)" ng-disabled="!newItem.email || !newItem.ulang || (newItem.email != newItem.ulang) || (newItem.email == tampungpasien.profile.email)">
+            <div ng-show="showspin" class="mdl-spinner mdl-js-spinner is-active" ></div><div ng-show="!showspin"> Simpan Perubahan</div>
+          </button>
+       </div>
+
+     </div>
+
+    </div>
+
+</dialog>

@@ -1,0 +1,72 @@
+<dialog id="ubahemailpegawai" class="mdl-dialog newnewmodal" >
+    <div class="no-internet" ng-show="gagallagi">
+            <p>{{pesangagal}}</p>
+      </div>
+     <button class="mdl-button mdl-js-button mdl-button--icon modal_button" ng-click="hideDialog('ubahemailpegawai')">
+      <i class="material-icons">close</i>
+    </button>
+       <div class="backdrop" ng-click="hideDialog('ubahemailpegawai')">
+    </div>
+    <div class="modal__modal" >
+     <h2 class="g-modal-title-h1 sc-truncate">Ubah Email Pegawai</h2>
+
+     <div class="profileSettings__form">
+       <div class="sc-media">
+          <div class="profileSettings__baseFields sc-media-content">
+            <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Email Baru</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="email" id="sample1" placeholder="" ng-model="newItem.email">
+                            <label class="mdl-textfield__label" for="sample1">Email Baru</label>
+                            <span class="mdl-textfield__error">Masukkan email dengan benar</span>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+            <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Password Anda</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="password" id="sample1" placeholder="" ng-model="newItem.pass">
+                            <label class="mdl-textfield__label" for="sample1">Password</label>
+                             <span class="mdl-textfield__error">Masukkan password dengan benar</span>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+              
+
+
+          </div>
+       </div>
+
+       <div class="profileSettings__formButtons sc-button-toolbar sc-border-light-top">
+          
+          <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:red;" ng-click="hideDialog('ubahemailpegawai')">
+             Batal
+          </button>
+           <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="ubahemailprofile(newItem)" ng-disabled="!newItem.email || !newItem.pass ||(newItem.email == dataprofile.email)">
+            <div ng-show="showspin" class="mdl-spinner mdl-js-spinner is-active" ></div><div ng-show="!showspin"> Simpan Perubahan</div>
+          </button>
+       </div>
+
+     </div>
+
+    </div>
+
+</dialog>

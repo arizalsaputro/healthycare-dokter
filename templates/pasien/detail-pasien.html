@@ -1,0 +1,113 @@
+
+
+<div id="content" ng-init="changejud('Detail Pasien');setsearchnull();numron=getRandomNum();" ng-class="{'bgklinik1':numron==1,'bgklinik2':numron==2,'bgklinik3':numron==3,'bgklinik4':numron==4,'bgklinik5':numron==5,'bgklinik6':numron==6,'bgklinik7':numron==7,'bgklinik8':numron==8,'bgklinik9':numron==9,'bgklinik10':numron==10}">
+        <div id="profile-info">
+        
+          <img ng-show="tampungpasien.profile.photo" id="profile-image"  ng-src="{{tampungpasien.profile.photo || 'img/person-flat.png'}}" ng-click="openimageprofile(tampungpasien.profile.nama,tampungpasien.profile.photo)" style="cursor:pointer;">
+           <img ng-show="!tampungpasien.profile.photo && tampungpasien.profile.kelamin == 'P'" id="profile-image"  ng-src="img/person-girl-flat.png" style="cursor:pointer;">
+           <img ng-show="!tampungpasien.profile.photo && tampungpasien.profile.kelamin == 'L'" id="profile-image"  ng-src="img/person-flat.png" style="cursor:pointer;">
+
+          <h5 id="profile-name">{{tampungpasien.profile.nama}}</h5>
+          <p id="profile-name2" ng-show="tampungpasien.profile.kelamin == 'P'">Perempuan</p>
+         <p id="profile-name2" ng-show="tampungpasien.profile.kelamin == 'L'">Laki - Laki</p>
+         
+          <p id="profile-name3">{{realdate | date:"longDate"}}</p>
+          <p id="profile-name3">{{tampungpasien.profile.alamat}}</p>
+          <p id="profile-name3">{{tampungpasien.profile.nomor_telp}}</p>
+          <p id="profile-name3">{{tampungpasien.profile.email}}</p>
+       
+
+        </div>
+         <div class="mdl-card__menu">
+                   <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="detailpasien">
+                   <i class="material-icons" style="color:white" >more_vert</i>
+                </button>
+                <div class="mdl-tooltip" for="detailpasien">
+                Opsi
+                </div>
+                <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="detailpasien">
+                
+                  <li class="mdl-menu__item">Input Rekam Medik</li>
+                   <li class="mdl-menu__item" ng-click="showUbahprofile(tampungpasien,1)">Ubah Data Pasien</li>
+                  <li class="mdl-menu__item" ng-click="showDialog('ubahemailpasien')">Ubah Email</li>
+                  <li class="mdl-menu__item" ng-click="showDialog('ubahpassword')">Ubah Password</li>
+                   <li class="mdl-menu__item" ng-click="resetpass(tampungpasien.profile.email)">Reset Password</li>
+                  <li class="mdl-menu__item" ng-click="showDialog('hapuspasien')">Hapus Pasien</li>
+                </ul>
+         </div>
+</div>
+
+<div class="l-vertical-bar opacityanimate">
+  <div class="userInfoBar">
+     <div class="userInfoBar__tabs">
+        <h5 >Rekam Medik</h5>
+     </div>
+  </div>
+</div>
+
+
+<div class="opacityanimate">
+  <table class="mdl-data-table mdl-js-data-table  mdl-shadow--2dp table_rekam_medik table">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">No</th>
+      <th class="mdl-data-table__cell--non-numeric">Tanggal</th>
+        <th class="mdl-data-table__cell--non-numeric">Diagnosa</th>
+      <th class="mdl-data-table__cell--non-numeric">Obat</th>
+      <th class="mdl-data-table__cell--non-numeric">Kesimpulan</th>
+      <th class="mdl-data-table__cell--non-numeric"></th>
+  
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">1</td>
+      <td class="mdl-data-table__cell--non-numeric">May 21 2016</td>
+
+      <td class="mdl-data-table__cell--non-numeric"  >Bakteri</td>
+      <td class="mdl-data-table__cell--non-numeric" >Pinisilin</td>
+      <td class="mdl-data-table__cell--non-numeric" >Demam Berdarah</td>
+      <td> 
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="lihatrekam">
+                   <i class="material-icons" >assignment</i>
+           </button>
+           <div class="mdl-tooltip" for="lihatrekam">
+            Lihat Lengkap Rekam Medik
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="editrekam" ng-click="showeditrekammedik()">
+               <i class="material-icons" >mode_edit</i>
+            </button>
+            <div class="mdl-tooltip" for="editrekam">
+            Edit Rekam Medik
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hapusrekam">
+               <i class="material-icons" >delete</i>
+            </button>
+              <div class="mdl-tooltip" for="hapusrekam">
+            Hapus Rekam Medik
+            </div>
+
+      </td>
+       <!--<td > Betadine </td>
+       <td > Demam Tinggi </td>
+      <td > Dalam penyembuhan </td>-->
+    </tr>
+ 
+  </tbody>
+</table>
+</div>
+
+ <div class="floating " ng-if="!showsnackbar">
+      <div class="mdl-tooltip" for="tambahrek">
+                Tambah Rekam medis
+     </div>
+ <button  id="tambahrek" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" ng-click="showDialog('addrekammedik')">
+  <i class="material-icons" >add</i>
+  </button>
+</div>
+<!--edit rekam medik -->
+
+
+
+
+

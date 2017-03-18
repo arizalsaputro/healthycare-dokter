@@ -1,0 +1,29 @@
+<dialog id="gambar" class="mdl-dialog newModal" >
+     <div class="no-internet" ng-show="gagallagi">
+            <p>{{pesangagal}}</p>
+      </div>
+     <button class="mdl-button mdl-js-button mdl-button--icon modal_button" ng-click="hideDialog('gambar')">
+      <i class="material-icons">close</i>
+    </button>
+
+    <div class="modal__modal" style="width: 35%;">
+     <h2 class="g-modal-title-h1 sc-truncate">{{tmpimg.nama || 'tidak ada gambar'}}</h2>
+
+     <div class="profileSettings__form">
+       <div class="sc-media">
+           <div class="profileSettings__avatar">
+          <div class="editImage" style="width: 100%;">
+            <div class="editImage__select">
+              <img ng-src="{{tmpimg.img || 'img/imgerr.png'}}" err-src="img/imgerr.png" style="height:100%;">    
+            </div>
+        
+          </div>
+        </div>
+       </div>
+
+
+     </div>
+
+    </div>
+
+</dialog>

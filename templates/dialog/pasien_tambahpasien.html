@@ -1,0 +1,180 @@
+<dialog id="tambahpasien" class="mdl-dialog newModal" >
+     <div class="no-internet" ng-show="gagallagi">
+            <p>{{pesangagal}}</p>
+      </div>
+     <button class="mdl-button mdl-js-button mdl-button--icon modal_button" ng-click="hideDialog('tambahpasien')">
+      <i class="material-icons">close</i>
+    </button>
+      
+    <div class="modal__modal" >
+     <h2 class="g-modal-title-h1 sc-truncate">Tambah Pasien</h2>
+
+     <div class="profileSettings__form">
+       <div class="sc-media">
+          <div class="profileSettings__baseFields sc-media-content">
+            <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Nomor Identitas</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="number" id="sample1"  ng-model="newItem.ktp">
+                            <label class="mdl-textfield__label" for="sample1">Nomor Identitas</label>
+                            <span class="mdl-textfield__error">Masukkan nomor identias dengan benar</span>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+            <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Nama Pasien</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="text" id="sample1"  ng-model="newItem.nama">
+                            <label class="mdl-textfield__label" for="sample1">Nama Lengkap</label>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+                    <div class="profileSettings__cell ">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Alamat</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" style="width:100%;">
+                            <input class="mdl-textfield__input" type="text" id="sample1"  ng-model="newItem.alamat">
+                            <label class="mdl-textfield__label" for="sample1">Alamat Lengkap</label>
+                            
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+            
+                 <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Tanggal Lahir</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="date" id="sample1" ng-model="newItem.umur"  style="margin-top:-4px;">
+                             <label class="mdl-textfield__label" for="sample1"></label>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+            <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Nomor Telp</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="number" id="sample1" ng-model="newItem.nomor_telp">
+                            <label class="mdl-textfield__label" for="sample1">Nomor Telp</label>
+                            <span class="mdl-textfield__error">Masukkan nomor telepon dengan benar</span>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+             <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                      <span class="textfield__label g-required-label">Jenis Kelamin</span>
+                      <div class="textfield__inputWrapper">
+                            <div class="mdl-textfield mdl-js-textfield" >
+                               <select name='options' ng-model="newItem.kelamin" style="margin-top:8px;">
+                                <option  ng-repeat="gender in preferences"
+                                        ng-value="gender.id">{{ gender.name || 'Pilih Jenis Kelamin'}}</option>
+                               </select> 
+                             </div>
+                      </div>
+                  </label>
+      
+                </div>
+            </div>
+
+                <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Alamat Email</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" >
+                            <input class="mdl-textfield__input" type="email" id="sample1"  ng-model="newItem.email" >
+                            <label class="mdl-textfield__label" for="sample1">Email</label>
+                            <span class="mdl-textfield__error">Masukkan email dengan benar</span>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+      
+              <div class="profileSettings__cell">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Password</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield" style="width:100%;">
+                            <input class="mdl-textfield__input" type="password" id="sample1"  ng-model="newItem.pass">
+                            <label class="mdl-textfield__label" for="sample1">Password</label>
+                            
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+
+
+          </div>
+       </div>
+
+       <div class="profileSettings__formButtons sc-button-toolbar sc-border-light-top">
+          
+          <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:red;" ng-click="hideDialog('tambahpasien')">
+             Batal
+          </button>
+           <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="tambahpasienbaru(newItem)" ng-disabled="!newItem.ktp || !newItem.nama || !newItem.alamat || !newItem.umur || !newItem.nomor_telp || !newItem.kelamin || !newItem.email || !newItem.pass">
+            <div ng-show="showspin" class="mdl-spinner mdl-js-spinner is-active" ></div><div ng-show="!showspin"> Tambah Pasien</div>
+          </button>
+       </div>
+
+     </div>
+
+    </div>
+
+</dialog>

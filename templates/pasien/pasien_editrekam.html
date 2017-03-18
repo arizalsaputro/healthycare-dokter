@@ -1,0 +1,160 @@
+
+<dialog id="editrekammedik" class="mdl-dialog newModal" >
+     <button class="mdl-button mdl-js-button mdl-button--icon modal_button" ng-click="hideDialog('editrekammedik')">
+      <i class="material-icons">close</i>
+    </button>
+    <div class="modal__modal" >
+     <h2 class="g-modal-title-h1 sc-truncate">Tambah Rekam Medik</h2>
+
+     <div class="profileSettings__form">
+       <div class="sc-media">
+          <div class="profileSettings__baseFields sc-media-content">
+              <div class="profileSettings__cell m-fullWidth">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label ">Keluhan</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield m-fullWidth" >
+                            <input class="mdl-textfield__input" type="text" id="sample1" ng-model="editrekam.keluhan" >
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                           
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+ 
+            <div class="profileSettings__cell  m-fullWidth">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label ">Pemeriksaan</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield m-fullWidth" >
+                            <input class="mdl-textfield__input" type="text" id="sample1" ng-model="editrekam.pemeriksaan">
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                           
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+                    <div class="profileSettings__cell  m-fullWidth">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label ">Pemeriksaan Lanjutan</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield m-fullWidth" >
+                            <input class="mdl-textfield__input" type="text" id="sample1" ng-model="editrekam.lanjutan">
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                            
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+                  <div class="profileSettings__cell  m-fullWidth">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label ">Diagnosa</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield m-fullWidth" >
+                            <input class="mdl-textfield__input" type="text" id="sample1" ng-model="editrekam.diagnosa">
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                           
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+                 <div class="profileSettings__cell m-fullWidth">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Kesimpulan</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield m-fullWidth" >
+                            <input class="mdl-textfield__input" type="text" id="sample1" ng-model="editrekam.kesimpulan">
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                           
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+                  <div class="profileSettings__cell m-fullWidth">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Obat</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield m-fullWidth" >
+                            <input class="mdl-textfield__input" type="text" id="sample1" ng-model="editrekam.obat">
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+          
+               <div class="profileSettings__cell m-fullWidth">
+                <div class="textfield messageOutside">
+                   <label>
+                    <span class="textfield__label g-required-label">Kondisi</span>
+
+                      <div class="textfield__inputWrapper">
+                          <div class="mdl-textfield mdl-js-textfield m-fullWidth" >
+                            <input class="mdl-textfield__input" type="text" id="sample1" ng-model="editrekam.kondisi">
+                            <label class="mdl-textfield__label" for="sample1"></label>
+                            
+                          </div>
+                          
+                      </div>
+
+                  </label>
+      
+                </div>
+            </div>
+
+          </div>
+       </div>
+
+       <div class="profileSettings__formButtons sc-button-toolbar sc-border-light-top">
+          
+          <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" style="color:red;" ng-click="hideDialog('editrekammedik')">
+             Batal
+          </button>
+           <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="editrekammedik(editrekam)" ng-disabled="!editrekam.kesimpulan || !editrekam.obat || !editrekam.kondisi">
+            <div ng-show="showspin" class="mdl-spinner mdl-js-spinner is-active" ></div><div ng-show="!showspin"> Simpan</div>
+          </button>
+       </div>
+
+     </div>
+
+    </div>
+
+</dialog>

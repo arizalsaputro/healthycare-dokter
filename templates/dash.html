@@ -1,0 +1,85 @@
+
+
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+
+
+
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">{{judul}}</span>
+          <div class="mdl-layout-spacer"></div>
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+              <i class="material-icons">search</i>
+            </label>
+            <div class="mdl-textfield__expandable-holder">
+              <input class="mdl-textfield__input" type="text" id="search" ng-model="search" ng-change="setCari(search)">
+              <label class="mdl-textfield__label" for="search">Masukkan kata kunci</label>
+            </div>
+          </div>
+           <div ng-if="false" click-anywhere-but-here="shownotifbox=false" ng-click="makenotification()"  class="material-icons mdl-badge mdl-badge--overlap" data-badge="4" ng-click="" style="cursor: pointer;">notifications</div>
+          <!-- <div class="material-icons" data-badge="" ng-click="" style="cursor: pointer;">notifications_none</div>-->
+          <div ng-if="shownotifbox" id="notificationContainer">
+             <div id="notificationTitle">Notifications</div>
+             <div id="notificationsBody" class="notifications">
+
+            </div>
+             <div id="notificationFooter"><a href="" ng-click="tesnotify()">See All</a></div>
+          </div>    
+        </div>
+      </header>
+
+
+      <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header">
+          <img ng-click="openprofile()" ng-src="{{dataprofile.photo || 'img/doctor-flat.png'}}" class="demo-avatar" style="cursor:pointer;">
+          <div class="demo-avatar-dropdown">
+            <span>{{dataprofile.nama}}</span>
+            <div class="mdl-layout-spacer"></div>
+            <button ng-show="false" id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+              <i class="material-icons" role="presentation">arrow_drop_down</i>
+              <span class="visuallyhidden">Accounts</span>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+               <li class="mdl-menu__item" ng-click="clickOutapp()"><i class="mdl-color-text--blue-grey-400 material-icons" style="padding-right: 6px;">exit_to_app</i>Keluar</li>
+            </ul>
+          </div>
+        </header>
+        <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+       
+          <a class="mdl-navigation__link" href="#/dash/periksa" ng-click="changejud('Periksa')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_hospital</i>Periksa</a>
+          <a class="mdl-navigation__link" href="#/dash/home" ng-click="changejud('Analytics')"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">equalizer</i>Analytics</a>
+          <a class="mdl-navigation__link" href="" ng-click="clickOutapp()"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">exit_to_app</i>Keluar</a>
+          
+        </nav>
+      </div>
+     <!--<div ui-view name="menuContent"></div>-->
+      <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="no-internet" ng-show="showsnackbar ">
+            <p>Tidak terkoneksi dengan jaringan internet.</p>
+          </div>
+        <div ui-view name="tab-dash"></div>
+        
+      </main>
+  
+    <div id="demo-toast-example" class="mdl-js-snackbar mdl-snackbar" style="right:0px;bottom:40px;">
+      <div class="mdl-snackbar__text"></div>
+     <button class="mdl-snackbar__action" type="button"></button> 
+    </div>
+<div ng-include src="'templates/dialog/dialogberhasil.html'" ></div>
+<div ng-include src="'templates/dialog/admin_keluarapp.html'" ></div>
+<div ng-include src="'templates/dialog/pasien_tambahpasien.html'" ></div>
+<div ng-include src="'templates/dialog/pasien_lihatpass.html'" ></div>
+<div ng-include src="'templates/dialog/pasien_ubahpasswordpas.html'" ></div>
+<div ng-include src="'templates/dialog/pasien_ubahemailpasien.html'" ></div>
+<div ng-include src="'templates/dialog/pasien_ubahprofilepasien.html'" ></div>
+<div ng-include src="'templates/dialog/pasien_hapuspasien.html'" ></div>
+<div ng-include src="'templates/dialog/loading.html'" ></div>
+<div ng-include src="'templates/dialog/dialog_image.html'" ></div>
+<div ng-include src="'templates/dialog/profile_edit.html'" ></div>
+<div ng-include src="'templates/dialog/profile_ubahemail.html'" ></div>
+<div ng-include src="'templates/dialog/profile_password.html'" ></div>
+
+
+
+

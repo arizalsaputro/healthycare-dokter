@@ -1,0 +1,59 @@
+
+
+<div id="content" ng-init="changejud('Profile');setsearchnull();numron=getRandomNum();" ng-class="{'bgklinik1':numron==1,'bgklinik2':numron==2,'bgklinik3':numron==3,'bgklinik4':numron==4,'bgklinik5':numron==5,'bgklinik6':numron==6,'bgklinik7':numron==7,'bgklinik8':numron==8,'bgklinik9':numron==9,'bgklinik10':numron==10}">
+        <div id="profile-info">
+        
+          <img  id="profile-image"  ng-src="{{dataprofile.photo || 'img/doctor-flat.png'}}" ng-click="openimageprofile(dataprofile.nama,dataprofile.photo)" style="cursor:pointer;">
+          
+        
+          <h5 id="profile-name" ng-if="dataprofile.spesialis != 'Dokter Gigi'">dr. {{dataprofile.nama}}</h5>
+          <h5 id="profile-name" ng-if="dataprofile.spesialis == 'Dokter Gigi'">drg. {{dataprofile.nama}}</h5>
+         
+          <p id="profile-name2" ng-if="dataprofile.kelamin == 'P'">Perempuan</p>
+         <p id="profile-name2" ng-if="dataprofile.kelamin == 'L'">Laki - Laki</p>
+          <p ng-if="dataprofile.alamat" id="profile-name3">{{dataprofile.alamat}}</p>
+          <p ng-if="dataprofile.spesialis" id="profile-name3">{{dataprofile.spesialis}}</p>
+          <p ng-if="dataprofile.nomor_telp" id="profile-name3">{{dataprofile.nomor_telp}}</p>
+          <p id="profile-name3">{{dataprofile.email}}</p>
+
+
+        </div>
+         <div class="mdl-card__menu">
+                   <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="detaildokter">
+                   <i class="material-icons" style="color:white" >more_vert</i>
+                </button>
+                <div class="mdl-tooltip" for="detaildokter">
+                Opsi
+                </div>
+                <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="detaildokter">    
+                   <li class="mdl-menu__item" ng-click="showUbahprofile(dataprofile)">Edit Profile</li>
+                   <li class="mdl-menu__item" ng-click="showDialog('ubahemailpegawai')">Ubah Email</li>
+                   <li class="mdl-menu__item" ng-click="showDialog('ubahpasswordpegawai')">Ubah Password</li>
+                   <li class="mdl-menu__item" ng-click="resetpass(dataprofile.email)">Reset Password</li>
+                </ul>
+         </div>
+</div>
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect opacityanimate">
+  <div class="mdl-tabs__tab-bar">
+    
+       <a href="#jadwal-panel" class="mdl-tabs__tab is-active">Jadwal Praktek</a>
+  </div>
+
+    <div class="mdl-tabs__panel is-active" id="jadwal-panel">
+      <div class="mdl-grid demo-content" >
+           
+              <div class="list mdl-cell mdl-cell--3-col " ng-repeat="day in dataprofile.listjadwal" >
+
+              <a class="item " href="" ng-click="" ng-class="{'backcolored' : day.start&&day.end}">
+                <h2 style="margin:auto;font-size:20px;text-align: center;" ng-init="indoday=getindoday(day.hari)">{{indoday}}</h2>
+                <p style="margin:auto;text-align: center;">{{day.start | date: "HH:mm" }} - {{day.end | date: "HH:mm"}}</p>
+              </a>
+              
+             </div>  
+      </div>
+  </div>
+
+</div>
+
+
+
